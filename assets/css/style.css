@@ -50,8 +50,8 @@ div#viewMap {
 
 div#map {
     display: flex;
-    height: 150px;
-    width: 200px;
+    height: 200px;
+    width: 300px;
     border-radius: 7px;
 }
 
