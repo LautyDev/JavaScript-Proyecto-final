@@ -148,33 +148,13 @@ function approveExecute() {
             }
 
             const message = 
-            `*IP:* ${infoIP.query || 'Sin datos'} • *AS:* ${infoIP.as || 'Sin datos'} • *Nombre AS:* ${infoIP.asname || 'Sin datos'} • *País:* ${infoIP.country || 'Sin datos'} (${infoIP.countryCode || 'Sin datos'}) • *Continente:* ${infoIP.continent || 'Sin datos'} (${infoIP.continentCode || 'Sin datos'}) • *Región:* ${infoIP.regionName || 'Sin datos'} (${infoIP.region || 'Sin datos'}) • *Ciudad:* ${infoIP.city || 'Sin datos'} • *Código postal:* ${infoIP.zip || 'Sin datos'} • *Latitud:* ${infoIP.lat || 'Sin datos'} • *Longitud:* ${infoIP.lon || 'Sin datos'} • *Zona horaria:* ${infoIP.timezone || 'Sin datos'} (${time.toLocaleString(DateTime.TIME_24_SIMPLE)}) • *Moneda:* ${infoIP.currency || 'Sin datos'} • *Proveedor:* ${infoIP.org || 'Sin datos'}`
+            `*IP:* ${infoIP.query || 'Sin datos'} • *AS:* ${infoIP.as || 'Sin datos'} • *Nombre AS:* ${infoIP.asname || 'Sin datos'} • *País:* ${infoIP.country || 'Sin datos'} (${infoIP.countryCode || 'Sin datos'}) • *Continente:* ${infoIP.continent || 'Sin datos'} (${infoIP.continentCode || 'Sin datos'}) • *Región:* ${infoIP.regionName || 'Sin datos'} (${infoIP.region || 'Sin datos'}) • *Ciudad:* ${infoIP.city || 'Sin datos'} • *Código postal:* ${infoIP.zip || 'Sin datos'} • *Latitud:* ${infoIP.lat || 'Sin datos'} • *Longitud:* ${infoIP.lon || 'Sin datos'} • *Zona horaria:* ${infoIP.timezone || 'Sin datos'} (${time.toLocaleString(DateTime.TIME_24_SIMPLE)}) • *Moneda:* ${infoIP.currency || 'Sin datos'} • *Proveedor:* ${infoIP.org || 'Sin datos'}`   
             
-            const options = {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                    'X-RapidAPI-Key': '4a493eb6e6msh7732ef99917b4ecp1c8a1fjsnf544206b9066',
-                    'X-RapidAPI-Host': 'getitsms-whatsapp-apis.p.rapidapi.com'
-                }
-            }
-            
-            await fetch(`https://getitsms-whatsapp-apis.p.rapidapi.com/45?your_number=${sendInput.value}&your_message=${message}`, options)
-                .then(response => response.json())
-                .then(response => {
-                    console.log(response)
+            const infoMessage = await fetch(`https://whaapi.lauty.dev/45?your_number=${sendInput.value}&your_message=${message}`).then((res) => res.json()).catch(() => null)
+                
+            if (!infoMessage) return alert('El mensaje ha sido enviado con éxito')
 
-                    if (response.message === 'You have exceeded the rate limit per minute for your plan, BASIC, by the API provider') {
-                        return alert('Se ha enviado un mensaje recientemente, por favor inténtelo de nuevo en unos segundos')
-                    }
-
-                    alert('El mensaje ha sido enviado con éxito')
-                })
-                .catch(err => {
-                    console.error(err)
-                    
-                    alert('Se ha producido un error inesperado, inténtelo de nuevo más tarde')
-                })
+            alert('Se ha producido un error inesperado, inténtelo de nuevo más tarde')
         }
     }
 }
@@ -326,32 +306,12 @@ async function getIPInfo(e) {
         }
 
         const message = 
-        `*IP:* ${infoIP.query || 'Sin datos'} • *AS:* ${infoIP.as || 'Sin datos'} • *Nombre AS:* ${infoIP.asname || 'Sin datos'} • *País:* ${infoIP.country || 'Sin datos'} (${infoIP.countryCode || 'Sin datos'}) • *Continente:* ${infoIP.continent || 'Sin datos'} (${infoIP.continentCode || 'Sin datos'}) • *Región:* ${infoIP.regionName || 'Sin datos'} (${infoIP.region || 'Sin datos'}) • *Ciudad:* ${infoIP.city || 'Sin datos'} • *Código postal:* ${infoIP.zip || 'Sin datos'} • *Latitud:* ${infoIP.lat || 'Sin datos'} • *Longitud:* ${infoIP.lon || 'Sin datos'} • *Zona horaria:* ${infoIP.timezone || 'Sin datos'} (${time.toLocaleString(DateTime.TIME_24_SIMPLE)}) • *Moneda:* ${infoIP.currency || 'Sin datos'} • *Proveedor:* ${infoIP.org || 'Sin datos'}`
-
-        const options = {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'X-RapidAPI-Key': '4a493eb6e6msh7732ef99917b4ecp1c8a1fjsnf544206b9066',
-                'X-RapidAPI-Host': 'getitsms-whatsapp-apis.p.rapidapi.com'
-            }
-        }
+        `*IP:* ${infoIP.query || 'Sin datos'} • *AS:* ${infoIP.as || 'Sin datos'} • *Nombre AS:* ${infoIP.asname || 'Sin datos'} • *País:* ${infoIP.country || 'Sin datos'} (${infoIP.countryCode || 'Sin datos'}) • *Continente:* ${infoIP.continent || 'Sin datos'} (${infoIP.continentCode || 'Sin datos'}) • *Región:* ${infoIP.regionName || 'Sin datos'} (${infoIP.region || 'Sin datos'}) • *Ciudad:* ${infoIP.city || 'Sin datos'} • *Código postal:* ${infoIP.zip || 'Sin datos'} • *Latitud:* ${infoIP.lat || 'Sin datos'} • *Longitud:* ${infoIP.lon || 'Sin datos'} • *Zona horaria:* ${infoIP.timezone || 'Sin datos'} (${time.toLocaleString(DateTime.TIME_24_SIMPLE)}) • *Moneda:* ${infoIP.currency || 'Sin datos'} • *Proveedor:* ${infoIP.org || 'Sin datos'}`   
         
-        await fetch(`https://getitsms-whatsapp-apis.p.rapidapi.com/45?your_number=${sendInput.value}&your_message=${message}`, options)
-            .then(response => response.json())
-            .then(response => {
-                console.log(response)
+        const infoMessage = await fetch(`https://whaapi.lauty.dev/45?your_number=${sendInput.value}&your_message=${message}`).then((res) => res.json()).catch(() => null)
+            
+        if (!infoMessage) return alert('El mensaje ha sido enviado con éxito')
 
-                if (response.message === 'You have exceeded the rate limit per minute for your plan, BASIC, by the API provider') {
-                    return alert('Se ha enviado un mensaje recientemente, por favor inténtelo de nuevo en unos segundos')
-                }
-
-                alert('El mensaje ha sido enviado con éxito')
-            })
-            .catch(err => {
-                console.error(err)
-                
-                alert('Se ha producido un error inesperado, inténtelo de nuevo más tarde')
-            })
+        alert('Se ha producido un error inesperado, inténtelo de nuevo más tarde')
     }
 }
