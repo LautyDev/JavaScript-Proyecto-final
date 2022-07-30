@@ -1,0 +1,96 @@
+<!-- 
+    Vea este desafío en mi página web
+    https://finalprojectjs.lauty.dev
+ -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script defer src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/luxon@2.4.0/build/global/luxon.min.js"></script>
+    <script defer src="./assets/js/script.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet'/>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <meta name="theme-color" content="#0f0f0f">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://finalprojectjs.lauty.dev">
+    <meta property="og:site_name" content="LautyDev Website">
+    <meta property="og:title" content="CoderHouse - JavaScript - Proyecto final">
+    <meta property="og:description" content="Simulador de geolocalización e información de una dirección IP para el proyecto final de JavaScript de CoderHouse">
+    <meta property="og:image" content="https://finalprojectjs.lauty.dev/assets/img/favicon.ico">
+
+    <title>GeoIP 🌐</title>
+    <meta name="description" content="Simulador de geolocalización e información de una dirección IP para el proyecto final de JavaScript de CoderHouse">
+    <meta name="keywords" content="ip, javascript, ip-api, mapbox, luxon, api, rapidapi">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">GeoIP</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="https://github.com/LautyDev/JavaScript-Proyecto-final" target="_blank">Código fuente</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            APIs
+                        </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="https://ipapi.lauty.dev/" target="_blank">IPApi</a></li>
+                        <li><a class="dropdown-item" href="https://rapidapi.com/getitsmsservices/api/getitsms-whatsapp-apis/" target="_blank">GetItSMS WhatsApp</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main>
+        <div>
+            <div class="modal fade" data-bs-backdrop="static" id="modalWarn" tabindex="-1" aria-labelledby="modalWarnLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalWarnLabel">Advertencia sobre el uso de su dirección IP</h5>
+                        </div>
+                        <div class="modal-body">
+                            <h5>Esta página web utiliza su dirección IP para mostrar la ubicación de la misma y si el usuario lo desea puede ver los datos desde la misma página web o enviar los datos de la dirección IP a su WhatsApp. Para saber qué hace esta página web con su dirección IP puede visitar el <a href="https://github.com/LautyDev/JavaScript-Proyecto-final" target="_blank">repositorio en GitHub</a> y ver el código fuente</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" data-bs-dismiss="modal">Denegar</button>
+                            <button type="button" data-bs-dismiss="modal" id="buttonApprove">Aprobar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form action="" id="ipForm">
+            <article class="containerForm">
+                <input type="tel" name="IP" id="ip" placeholder="Escribe una IP para ubicar" required>
+            </article>
+            <article class="containerForm">
+                <button type="button" id="submit">Ubicar</button>
+            </article>
+        </form>
+
+        <div id="viewMap">
+            
+        </div>
+    </main>
+</body>
+</html>

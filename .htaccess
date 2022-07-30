@@ -1,0 +1,14 @@
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} buttons-for-website\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} darodar\.com [NC,OR]
+
+Order deny,allow
+ Deny from all
+ <Files ~ “.(html|css|js|jpeg|png|gif)$”>
+ Allow from all
+ </Files>
+
+ RewriteCond %{THE_REQUEST} \.html
+RewriteRule ^(.*)\.html(.*)$ /$1$2 [R=301,L]
+
+ErrorDocument 404 /index.html

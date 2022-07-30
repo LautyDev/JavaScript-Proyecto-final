@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Nav */
+
+nav {
+    background-color: #0f0f0f;
+}
+
+/* Form */
+
+form {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article.containerForm {
+    padding-left: 10px;
+}
+
+input {
+    padding: 0.6rem;
+    border-radius: 7px;
+    border-color: gray;
+}
+
+button {
+    padding: 0.7rem;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: #0f0f0f;
+    cursor: pointer;
+}
+
+/* Mapa */
+
+div#viewMap {
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div#map {
+    display: flex;
+    height: 300px;
+    width: 500px;
+    border-radius: 7px;
+}
+
+.marker {
+    background-image: url('../img/marker.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+    div#map {
+        display: flex;
+        height: 600px;
+        width: 1000px;
+        border-radius: 7px;
+    }
+}
+
+/* Información */
+article#containerInfo {
+    padding-bottom: 1rem;
+}
+
+/* Enviar datos */
+
+div#infoDiv {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
